@@ -29,5 +29,22 @@ namespace StoreCatalog.Controllers
 
             return View(catalogViewModel);
         }
+
+        //GET
+        public IActionResult Create()
+        {
+            var processors = _db.processors.ToList();
+            var motherboards = _db.motherboards.ToList();
+            var graphicsCards = _db.graphicscards.ToList();
+
+            var catalogViewModel = new CatalogViewModel
+            {
+                Processors = processors,
+                Motherboards = motherboards,
+                GraphicsCards = graphicsCards
+            };
+
+            return View(catalogViewModel);
+        }
     }
 }
