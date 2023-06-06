@@ -1,6 +1,6 @@
 ﻿@* @model Processor *@
 
-@model StoreCatalog.Models.CatalogViewModel 
+@model CatalogViewModel 
 
 <form method="post">
 	<div class="border p-3 mt-4">
@@ -31,6 +31,88 @@
 			<label asp-for="Processors[0].IsAvailable"></label>
 			<input asp-for="Processors[0].IsAvailable" />
 		</div>
+		<button type="submit" class="btn button-primary" style="width:150px">Create</button>
+		<a asp-controller="Catalog" asp-action="Index" class="btn btn-secondary" style="width:150px">
+			Back to Catalog
+		</a>
+	</div>
+
+</form>
+
+<form method="post">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Create Item</h2>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Motherboards[0].Manufacturer"></label>
+			<input asp-for="Motherboards[0].Manufacturer" />
+		</div>
+		<div class="mb-3">
+			<label asp-for="Motherboards[0].Model"></label>
+			<input asp-for="Motherboards[0].Model" />
+		</div>
+		<div class="mb-3">
+			<input asp-for="Motherboards[0].Socket" />
+			<label asp-for="Motherboards[0].Socket"></label>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Motherboards[0].FormFactor"></label>
+			<input asp-for="Motherboards[0].FormFactor" />
+		</div>
+		<div class="mb-3">
+			<input asp-for="Motherboards[0].RAMSlots" />
+			<label asp-for="Motherboards[0].RAMSlots"></label>
+		</div>
+		<div class="mb-3">
+			<input asp-for="Motherboards[0].Price" />
+			<label asp-for="Motherboards[0].Price"></label>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Motherboards[0].IsAvailable"></label>
+			<input asp-for="Motherboards[0].IsAvailable" />
+		</div>
+		<button type="submit" class="btn button-primary" style="width:150px">Create</button>
+		<a asp-controller="Catalog" asp-action="Index" class="btn btn-secondary" style="width:150px">
+			Back to Catalog
+		</a>
+	</div>
+
+</form>
+
+<form method="post">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Create Item</h2>
+		</div>
+		<div class="mb-3">
+			<label asp-for="GraphicsCards[0].Manufacturer"></label>
+			<input asp-for="GraphicsCards[0].Manufacturer" />
+		</div>
+		<div class="mb-3">
+			<label asp-for="GraphicsCards[0].Model"></label>
+			<input asp-for="GraphicsCards[0].Model" />
+		</div>
+		<div class="mb-3">
+			<input asp-for="GraphicsCards[0].MemorySize" />
+			<label asp-for="GraphicsCards[0].MemorySize"></label>
+		</div>
+		<div class="mb-3">
+			<label asp-for="GraphicsCards[0].MemoryType"></label>
+			<input asp-for="GraphicsCards[0].MemoryType" />
+		</div>
+		<div class="mb-3">
+			<input asp-for="GraphicsCards[0].Price" />
+			<label asp-for="GraphicsCards[0].Price"></label>
+		</div>
+		<div class="mb-3">
+			<label asp-for="GraphicsCards[0].IsAvailable"></label>
+			<input asp-for="GraphicsCards[0].IsAvailable" />
+		</div>
+		<button type="submit" class="btn button-primary" style="width:150px">Create</button>
+		<a asp-controller="Catalog" asp-action="Index" class="btn btn-secondary" style="width:150px">
+			Back to Catalog
+		</a>
 	</div>
 
 </form>
