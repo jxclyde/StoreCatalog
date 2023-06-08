@@ -40,24 +40,57 @@ namespace StoreCatalog.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateProcessor(Processor obj)
         {
-            _db.processors.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("IndexGeneral");
+            
+            if (ModelState.IsValid)
+            {
+                _db.processors.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("IndexGeneral");
+
+            }
+            return View(obj);
         }
 
-        //Handling Motherboards creating process
-        public IActionResult CreateMotherboards()
-        {
+        //TODO ->
+		//Handling Processors Editing process
+		public IActionResult EditProcessor()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public IActionResult EditProcessor(Processor obj)
+		{
+
+			if (ModelState.IsValid)
+			{
+				_db.processors.Add(obj);
+				_db.SaveChanges();
+				return RedirectToAction("IndexGeneral");
+
+			}
+			return View(obj);
+		}
+
+		//Handling Motherboards creating process
+		public IActionResult CreateMotherboards()
+            {
             return View();
-        }
+            }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateMotherboards(Motherboard obj)
         {
-            _db.motherboards.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("IndexGeneral");
+            
+            if (ModelState.IsValid)
+            {
+                _db.motherboards.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("IndexGeneral");
+            }
+            return View(obj);
         }
 
         //Handling GraphicsCards creating process
@@ -69,10 +102,16 @@ namespace StoreCatalog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateGraphicsCards(GraphicsCard obj)
-        {
-            _db.graphicscards.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("IndexGeneral");
+        {   
+            
+            if (ModelState.IsValid)
+            {
+                _db.graphicscards.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("IndexGeneral");
+            }
+            return View(obj);
+
         }
 
     }

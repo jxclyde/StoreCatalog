@@ -15,8 +15,10 @@ namespace StoreCatalog.Models
         [Required]
         public string FormFactor { get; set; }
         [Required]
-        public int RAMSlots { get; set; }
-        public double Price { get; set; }
+		[Range(0, int.MaxValue, ErrorMessage = "Impossible to set mnegative values !")]
+		public int RAMSlots { get; set; }
+		[Range(0, int.MaxValue, ErrorMessage = "Impossible to set mnegative values !")]
+		public double Price { get; set; }
         [Required]
         public bool IsAvailable { get; set; }
     }

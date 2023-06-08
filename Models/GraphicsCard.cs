@@ -11,10 +11,12 @@ namespace StoreCatalog.Models
         [Required]
         public string Model { get; set; }
         [Required]
-        public int MemorySize { get; set; }
+		[Range(0, int.MaxValue, ErrorMessage = "Impossible to set mnegative values !")]
+		public int MemorySize { get; set; }
         [Required]
         public string MemoryType { get; set; }
-        public double Price { get; set; }
+		[Range(0, int.MaxValue, ErrorMessage = "Impossible to set mnegative values !")]
+		public double Price { get; set; }
         [Required]
         public bool IsAvailable { get; set; }
     }
