@@ -1,0 +1,46 @@
+﻿@model GraphicsCard
+
+<form method="post" asp-action="EditGraphicsCard">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Create Item</h2>
+		</div>
+		<div asp-validation-summary="All"></div>
+		<input type="hidden" asp-for="GraphicsCardId" />
+		<div class="mb-3">
+			<label asp-for="Manufacturer"></label>
+			<input asp-for="Manufacturer" />
+			<span asp-validation-for="Manufacturer" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Model"></label>
+			<input asp-for="Model" />
+			<span asp-validation-for="Model" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<input asp-for="MemorySize" />
+			<label asp-for="MemorySize"></label>
+			<span asp-validation-for="MemorySize" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="MemoryType"></label>
+			<input asp-for="MemoryType" />
+			<span asp-validation-for="MemoryType" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<input asp-for="Price" />
+			<label asp-for="Price"></label>
+			<span asp-validation-for="Price" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="IsAvailable"></label>
+			<input asp-for="IsAvailable" />
+			<span asp-validation-for="IsAvailable" class="text-danger"></span>
+		</div>
+		<button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+		<a asp-controller="General" asp-action="IndexGeneral" class="btn btn-secondary" style="width:150px">
+			Back to Catalogue
+		</a>
+	</div>
+
+</form>

@@ -51,11 +51,21 @@ namespace StoreCatalog.Controllers
             return View(obj);
         }
 
-        //TODO ->
 		//Handling Processors Editing process
-		public IActionResult EditProcessor()
+		public IActionResult EditProcessor(int? id )
 		{
-			return View();
+            if (id == null || id == 0)
+            { 
+                return NotFound();
+            }
+
+            var processorFromDb = _db.processors.Find(id);
+
+            if (processorFromDb == null)
+            {
+                return NotFound();
+            }
+			return View(processorFromDb);
 		}
 
 		[HttpPost]
@@ -65,7 +75,7 @@ namespace StoreCatalog.Controllers
 
 			if (ModelState.IsValid)
 			{
-				_db.processors.Add(obj);
+				_db.processors.Update(obj);
 				_db.SaveChanges();
 				return RedirectToAction("IndexGeneral");
 
@@ -73,8 +83,67 @@ namespace StoreCatalog.Controllers
 			return View(obj);
 		}
 
-		//Handling Motherboards creating process
-		public IActionResult CreateMotherboards()
+        //Handling Processors Deleting process
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult DeleteProcessor(int? id)
+        //{
+        //    if (id == null || id == 0)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var obj = _db.processors.Find(id);
+        //    if (obj == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    if (HttpContext.Request.Method == "POST")
+        //    {
+        //        _db.processors.Remove(obj);
+        //        _db.SaveChanges();
+        //        return RedirectToAction("IndexGeneral");
+        //    }
+
+        //    return View(obj);
+        //}
+
+        public IActionResult DeleteProcessor(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var processorFromDb = _db.processors.Find(id);
+
+            if (processorFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(processorFromDb);
+        }
+
+        [HttpPost("DeleteProcessorPOST")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteProcessorPOST(int? id)
+        {
+
+            var obj = _db.processors.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.processors.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("IndexGeneral");
+
+        }
+        //---------------------------------------------------------------------
+
+        //Handling Motherboards creating process
+        public IActionResult CreateMotherboards()
             {
             return View();
             }
@@ -92,6 +161,39 @@ namespace StoreCatalog.Controllers
             }
             return View(obj);
         }
+
+		//Handling Motherboard Editing process
+		public IActionResult EditMotherboard(int? id)
+		{
+			if (id == null || id == 0)
+			{
+				return NotFound();
+			}
+
+			var motherboardFromDb = _db.motherboards.Find(id);
+
+			if (motherboardFromDb == null)
+			{
+				return NotFound();
+			}
+			return View(motherboardFromDb);
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public IActionResult EditMotherboard(Motherboard obj)
+		{
+
+			if (ModelState.IsValid)
+			{
+				_db.motherboards.Update(obj);
+				_db.SaveChanges();
+				return RedirectToAction("IndexGeneral");
+
+			}
+			return View(obj);
+		}
+//---------------------------------------------------------------------
 
         //Handling GraphicsCards creating process
         public IActionResult CreateGraphicsCards()
@@ -114,5 +216,37 @@ namespace StoreCatalog.Controllers
 
         }
 
-    }
+		//Handling GraphicsCard Editing process
+		public IActionResult EditGraphicsCard(int? id)
+		{
+			if (id == null || id == 0)
+			{
+				return NotFound();
+			}
+
+			var graphicsCardFromDb = _db.graphicscards.Find(id);
+
+			if (graphicsCardFromDb == null)
+			{
+				return NotFound();
+			}
+			return View(graphicsCardFromDb);
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public IActionResult EditGraphicsCard(GraphicsCard obj)
+		{
+
+			if (ModelState.IsValid)
+			{
+				_db.graphicscards.Update(obj);
+				_db.SaveChanges();
+				return RedirectToAction("IndexGeneral");
+
+			}
+			return View(obj);
+		}
+
+	}
 }

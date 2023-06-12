@@ -37,7 +37,9 @@
             <th style="text-align: center; color:#6A5ACD">
                 Availability
             </th>
+            <th>
 
+            </th>
         </tr>
     </thead>
 
@@ -63,6 +65,19 @@
                 <td width="10%" style="text-align: center; color: @(cpus.IsAvailable ? "lime" : "red"); font-weight:bold">
                     @cpus.IsAvailable
                 </td>
+
+                    <td style="width: 100%;">
+                        <div class="w-100 btn-group d-flex justify-content-center" role="group">
+                            <a asp-controller="General" asp-action="EditProcessor" asp-route-id="@cpus.ProcessorId"
+                               class="btn btn-primary mx-2" style="width: 100%;">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                            <a asp-controller="General" asp-action="DeleteProcessor" asp-route-id="@cpus.ProcessorId"
+                               class="btn btn-danger mx-2" style="width: 100%;">
+                                <i class="bi bi-trash-fill"></i> Delete
+                            </a>
+                        </div>
+                    </td>
             </tr>
         }
     </tbody>
@@ -104,7 +119,9 @@
             <th style="text-align: center; color:#DF7857">
                 Availability
             </th>
+            <th>
 
+            </th>
         </tr>
     </thead>
 
@@ -132,6 +149,13 @@
                 </td>
                 <td width="10%" style="text-align: center; color: @(mbds.IsAvailable ? "lime" : "red"); font-weight:bold">
                     @mbds.IsAvailable
+                </td>
+                <td style="width: 100%;">
+                    <div class="w-100 btn-group d-flex justify-content-center" role="group">
+                        <a asp-controller="General" asp-action="EditMotherboard" asp-route-id="@mbds.MotherboardId"
+                            class="btn btn-primary mx-2" style="width: 100%;"><i class="bi bi-pencil-square"></i> Edit
+                        </a>
+                    </div>
                 </td>
             </tr>
         }
@@ -172,6 +196,9 @@
             <th style="text-align: center; color:#6A5ACD">
                 Availability
             </th>
+            <th>
+
+            </th>
         </tr>
     </thead>
 
@@ -196,6 +223,13 @@
                 </td>
                 <td width="10%" style="text-align: center; color: @(gpus.IsAvailable ? "lime" : "red"); font-weight:bold">
                     @gpus.IsAvailable
+                </td>
+                <td style="width: 100%;">
+                    <div class="w-100 btn-group d-flex justify-content-center" role="group">
+                        <a asp-controller="General" asp-action="EditGraphicsCard" asp-route-id="@gpus.GraphicsCardId"
+                            class="btn btn-primary mx-2" style="width: 100%;"><i class="bi bi-pencil-square"></i> Edit
+                        </a>
+                    </div>
                 </td>
             </tr>
         }
