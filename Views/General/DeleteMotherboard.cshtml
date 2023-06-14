@@ -1,0 +1,44 @@
+﻿@model Motherboard
+
+<form method="post" asp-controller="General" asp-action="DeleteMotherboardPOST" asp-route-id="@Model.MotherboardId">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Delete Item</h2>
+		</div>
+		<div asp-validation-summary="All"></div>
+		<input type="hidden" asp-for="MotherboardId" />
+		<div class="mb-3">
+			<label asp-for="Manufacturer"></label>
+			<input asp-for="Manufacturer" disabled/>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Model"></label>
+			<input asp-for="Model" disabled />
+		</div>
+		<div class="mb-3">
+			<input asp-for="Socket" disabled />
+			<label asp-for="Socket"></label>
+		</div>
+		<div class="mb-3">
+			<label asp-for="FormFactor"></label>
+			<input asp-for="FormFactor" disabled />
+		</div>
+		<div class="mb-3">
+			<label asp-for="RAMSlots"></label>
+			<input asp-for="RAMSlots" disabled />
+		</div>
+		<div class="mb-3">
+			<input asp-for="Price" disabled />
+			<label asp-for="Price"></label>
+		</div>
+		<div class="mb-3">
+			<label asp-for="IsAvailable"></label>
+			<input asp-for="IsAvailable" disabled />
+		</div>
+		<button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+		<a asp-controller="General" asp-action="IndexGeneral" class="btn btn-secondary" style="width:150px">
+			Back to Catalogue
+		</a>
+	</div>
+
+</form>

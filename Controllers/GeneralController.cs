@@ -83,32 +83,7 @@ namespace StoreCatalog.Controllers
 			return View(obj);
 		}
 
-        //Handling Processors Deleting process
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult DeleteProcessor(int? id)
-        //{
-        //    if (id == null || id == 0)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var obj = _db.processors.Find(id);
-        //    if (obj == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    if (HttpContext.Request.Method == "POST")
-        //    {
-        //        _db.processors.Remove(obj);
-        //        _db.SaveChanges();
-        //        return RedirectToAction("IndexGeneral");
-        //    }
-
-        //    return View(obj);
-        //}
-
+        //Handling Processors Deleting 
         public IActionResult DeleteProcessor(int? id)
         {
             if (id == null || id == 0)
@@ -193,7 +168,40 @@ namespace StoreCatalog.Controllers
 			}
 			return View(obj);
 		}
-//---------------------------------------------------------------------
+
+        //Handling Motherboard Deleting 
+        public IActionResult DeleteMotherboard(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var motherboardFromDb = _db.motherboards.Find(id);
+
+            if (motherboardFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(motherboardFromDb);
+        }
+
+        [HttpPost("DeleteMotherboardPOST")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteMotherboardPOST(int? id)
+        {
+
+            var obj = _db.motherboards.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.motherboards.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("IndexGeneral");
+
+        }
+        //---------------------------------------------------------------------
 
         //Handling GraphicsCards creating process
         public IActionResult CreateGraphicsCards()
@@ -248,5 +256,37 @@ namespace StoreCatalog.Controllers
 			return View(obj);
 		}
 
-	}
+        //Handling GraphicsCard Deleting 
+        public IActionResult DeleteGraphicsCard(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var graphicsCardFromDb = _db.graphicscards.Find(id);
+
+            if (graphicsCardFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(graphicsCardFromDb);
+        }
+
+        [HttpPost("DeleteGraphicsCardPOST")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteGraphicsCardPOST(int? id)
+        {
+
+            var obj = _db.graphicscards.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.graphicscards.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("IndexGeneral");
+
+        }
+    }
 }
