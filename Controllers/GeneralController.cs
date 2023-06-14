@@ -45,6 +45,7 @@ namespace StoreCatalog.Controllers
             {
                 _db.processors.Add(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Item created successfully !";
                 return RedirectToAction("IndexGeneral");
 
             }
@@ -76,7 +77,8 @@ namespace StoreCatalog.Controllers
 			if (ModelState.IsValid)
 			{
 				_db.processors.Update(obj);
-				_db.SaveChanges();
+                TempData["success"] = "Item updated successfully !";
+                _db.SaveChanges();
 				return RedirectToAction("IndexGeneral");
 
 			}
@@ -112,6 +114,7 @@ namespace StoreCatalog.Controllers
             }
             _db.processors.Remove(obj);
             _db.SaveChanges();
+            TempData["success"] = "Item deleted successfully !";
             return RedirectToAction("IndexGeneral");
 
         }
@@ -131,6 +134,7 @@ namespace StoreCatalog.Controllers
             if (ModelState.IsValid)
             {
                 _db.motherboards.Add(obj);
+                TempData["success"] = "Item created successfully !";
                 _db.SaveChanges();
                 return RedirectToAction("IndexGeneral");
             }
@@ -163,7 +167,8 @@ namespace StoreCatalog.Controllers
 			{
 				_db.motherboards.Update(obj);
 				_db.SaveChanges();
-				return RedirectToAction("IndexGeneral");
+                TempData["success"] = "Item updated successfully !";
+                return RedirectToAction("IndexGeneral");
 
 			}
 			return View(obj);
@@ -198,6 +203,7 @@ namespace StoreCatalog.Controllers
             }
             _db.motherboards.Remove(obj);
             _db.SaveChanges();
+            TempData["success"] = "Item deleted successfully !";
             return RedirectToAction("IndexGeneral");
 
         }
@@ -218,6 +224,7 @@ namespace StoreCatalog.Controllers
             {
                 _db.graphicscards.Add(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Item created successfully !";
                 return RedirectToAction("IndexGeneral");
             }
             return View(obj);
@@ -250,7 +257,8 @@ namespace StoreCatalog.Controllers
 			{
 				_db.graphicscards.Update(obj);
 				_db.SaveChanges();
-				return RedirectToAction("IndexGeneral");
+                TempData["success"] = "Item updated successfully !";
+                return RedirectToAction("IndexGeneral");
 
 			}
 			return View(obj);
@@ -285,6 +293,7 @@ namespace StoreCatalog.Controllers
             }
             _db.graphicscards.Remove(obj);
             _db.SaveChanges();
+            TempData["success"] = "Item deleted successfully !";
             return RedirectToAction("IndexGeneral");
 
         }
